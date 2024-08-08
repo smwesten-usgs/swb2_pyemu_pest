@@ -1,0 +1,20 @@
+lu_code	description	lu_group_py	cn_1	cn_2	cn_3	cn_4	cn_5	cn_6	cn_7	max_net_infil_1	max_net_infil_2	max_net_infil_3	max_net_infil_4	max_net_infil_5	max_net_infil_6	max_net_infil_7	growing_season_interception_a	growing_season_interception_b	growing_season_interception_n	nongrowing_season_interception_a	nongrowing_season_interception_b	nongrowing_season_interception_n	rz_1	rz_2	rz_3	rz_4	rz_5	rz_6	rz_7
+0	Canada-Nodata	nodata	0	25	25	25	0	25	25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+11	Open Water	openwat	100	100	100	100	100	100	100	2	1	1	0.5	2	1	1	0	0	0.8	0	0	0.8	0	0	0	0	0	0	0
+21	Low-Intensity Residential	devlow	65	75	85	90	65	75	85	3.5	1.5	0.5	0.5	3.5	1.5	0.5	0.005	0.015	1	0	0.005	1	2.5	2.5	2	1.5	2.5	2.5	2
+22	High-Intensity Residential	devmed	75	85	90	90	75	85	90	3	1.5	0.5	0.5	3	1.5	0.5	0.005	0.01	1	0	0.005	1	2	2.5	2	1.5	2	2.5	2
+23	Commercial/Indust./Transport.	devhigh	80	90	90	95	80	90	90	2.5	1.5	0.5	0.5	2.5	1.5	0.5	0.005	0	1	0	0	1	2	2.5	2	1.5	2	2.5	2
+31	Bare Rock/Sand/Clay	barren	80	85	90	90	80	85	90	5	2.5	1.5	1	5	2.5	1.5	0.01	0.005	1	0	0.005	1	1	1	1	1	1	1	1
+32	Strip Mine/Quarry/Gravel Pit	barren	80	65	75	90	80	85	90	5	2.5	1.5	1	5	2.5	1.5	0.01	0.005	1	0	0.005	0.5	1	1	1	1	1	1	1
+33	Transitional Barren	barrtran	45	60	70	80	45	65	75	4	2	0	0	4	2	0	0.02	0.005	0.5	0	0.06	0.5	2	2	2	2	2	2	2
+41	Deciduous Forest	decfrst	40	65	75	75	40	60	70	5	3	2	1	5	3	2	0.005	0.035	0.9	0	0.045	0.9	4.5	4.5	4	3.5	4.5	4.5	4
+42	Evergreen Forest	evfrst	40	60	75	80	40	65	75	5.5	3	1.5	1.5	5.5	3	1.5	0.005	0.055	0.9	0.005	0.045	0.9	3.5	3	3	3	3.5	3	3
+43	Mixed Forest	mixfrst	40	60	70	80	40	60	75	5.5	3	2	1.5	5.5	3	2	0.005	0.04	1	0.005	0.03	1	4	3	3.5	3	4	3	3.5
+51	Shrubland	shrub	45	60	70	75	45	60	70	5.5	2.5	1.5	1	5.5	2.5	1.5	0.005	0.025	1	0.005	0.01	1	3	3	3.5	3	3	3	3.5
+71	Natural Grassland/Herbaceous	grass	45	70	80	80	45	60	70	5	2.5	1.5	1	5	2.5	1.5	0.005	0.02	1	0.005	0.01	1	2.5	2.5	2.5	2.5	2.5	2.5	2.5
+81	Hay/Pasture	haygrass	55	70	80	85	55	70	80	4.5	2.5	2	1	4.5	2.5	2	0.01	0.02	1	0.005	0.01	1	2.5	3	2.5	2.5	2.5	3	2.5
+82	Row Crops	gencrop	55	70	80	85	55	70	80	5	2.5	1.5	1.5	5	2.5	1.5	0.01	0.015	1	0	0.005	1	2	2	2	2	2	2	2
+83	Small Grains	gencrop	55	65	80	85	55	70	80	5	2.5	1.5	1.5	5	2.5	1.5	0.01	0.015	1	0	0.005	1	2	2	2	2	2	2	2
+85	Urban/Other Grasses	devopen	55	65	70	85	55	65	80	3.5	1.5	1	0.5	3.5	1.5	1	0.005	0.01	1	0	0.005	1	2.5	2.5	2.5	1.5	2.5	2.5	2.5
+91	Woody Wetland	wdwetl	55	65	70	70	55	65	70	3	1.5	0.5	0.5	0.5	0.5	0.5	0.005	0.04	1	0	0.025	1	3	2.5	2	2	2	2	2
+92	Herbaceous Wetland	hbwetl	60	0	0	70	60	65	70	3	1.5	0.5	0.5	0.5	0.5	0.5	0.005	0.04	1	0	0.025	1	2	2	2	2	2	2	2
