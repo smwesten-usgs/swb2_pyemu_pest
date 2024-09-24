@@ -1,7 +1,9 @@
 import xarray as xr
 import rioxarray as rio
 import xrspatial as xrs
+from rasterio import features
 import pandas as pd
+import geopandas as gp
 import datetime as dt
 import argparse
 import numpy as np
@@ -10,10 +12,22 @@ num_zone_chars = 3
 
 grid_filename = 'actual_et__2016-01-01_to_2018-12-31__688_by_620.nc'
 zone_filename = 'observation_watersheds_zones_1000m.asc'
+surface_water_basins_shp = '../ALL_BASINS_FOR_OBS_GRID__EPSG_4269.shp'
 variable_name = 'actual_et'
 
 ds = xr.open_dataset(grid_filename, decode_cf=True, decode_coords=True, engine='netcdf4')
-mask_dataarray = rio.open_rasterio(zone_filename)
+#mask_dataarray = rio.open_rasterio(zone_filename)
+
+surface_water_basins_gdf = gp.read_file(surface_water_basins_shp)
+# rasterio is not wired to deal directly with geopandas objects; we must extract the geometry from the geopandas object
+# see https://pygis.io/docs/e_raster_rasterize.html
+#geom = [shapes for shapes in surface_water_basins_gdf.geometry]
+geom = surface_water_basins_gdf[['geometry','BASIN_INDX']].values.tolist()
+zones = features.rasterize(geom, out_shape=ds.actual_et[0,:,:].shape, transform=ds.rio.transform(), fill=-9999)
+# zonal_stats requires the mask to be a a dataarray; here we create a dataarray with the same dimensions as the seasonal_da,
+# copying the values of the mask into the dataarray
+zones_da = ds.actual_et[0,:,:].copy()
+zones_da.data = zones.astype(np.integer)
 
 # return 'n' grids of summed daily gridded values with 'n' equal to the number of subsequent quarters in the input dataset
 xarray_dataarray = ds[variable_name].resample(time="QS-DEC").reduce(np.sum, dim="time")
@@ -23,7 +37,7 @@ summary_type = 'quarterly_sum'
 dims = list(xarray_dataarray.dims)
 
 for i in range(xarray_dataarray.shape[0]):
-    df = xrs.zonal.stats(zones=mask_dataarray[0,:,:], values=xarray_dataarray[i,:,:])
+    df = xrs.zonal.stats(zones=zones_da, values=xarray_dataarray[i,:,:])
     if 'time' in dims:
         t = xarray_dataarray['time'][i].values
         year=pd.to_datetime(t).year

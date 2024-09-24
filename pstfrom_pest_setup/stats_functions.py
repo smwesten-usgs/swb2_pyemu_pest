@@ -99,6 +99,20 @@ def calculate_zonal_statistics(xarray_dataarray, mask_dataarray, summary_type='n
                 case 'mean_monthly_sum' | 'mean_monthly_mean':
                     # no 'year' or 'date' element, since this should summarize all values for a given month
                     df['month'] = month
+                case 'quarterly_sum':
+                    df['month'] = month
+                    df['year'] = year
+                    df['date'] = dt.datetime.strptime(f"{year}-{month}-01", "%Y-%m-%d")
+                    match month:
+                        case 12:
+                            season = 'DJF'
+                        case 3:
+                            season = 'MAM'
+                        case 6:
+                            season = 'JJA'
+                        case 9:
+                            season = 'SON'
+                    df['season'] = season                    
                 case 'annual_sum' | 'annual_mean':
                     df['month'] = 6
                     df['year'] = year
