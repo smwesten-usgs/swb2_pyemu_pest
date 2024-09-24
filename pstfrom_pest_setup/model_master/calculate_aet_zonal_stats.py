@@ -11,7 +11,7 @@ import numpy as np
 num_zone_chars = 3
 
 grid_filename = 'actual_et__2016-01-01_to_2018-12-31__688_by_620.nc'
-zone_filename = 'observation_watersheds_zones_1000m.asc'
+#zone_filename = 'observation_watersheds_zones_1000m.asc'
 surface_water_basins_shp = '../ALL_BASINS_FOR_OBS_GRID__EPSG_4269.shp'
 variable_name = 'actual_et'
 
