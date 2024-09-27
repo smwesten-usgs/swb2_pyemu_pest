@@ -67,7 +67,7 @@ def summarize_array_values(xarray_dataset, variable_name, summary_type='monthly_
 
     return result_dataarray
 
-def calculate_zonal_statistics(xarray_dataarray, mask_dataarray, summary_type='none', num_zone_chars=10):
+def calculate_zonal_statistics(xarray_dataarray, mask_dataarray, summary_type='none'):
     """
     Iterate over the grids in a xarray dataarray. It is assumed that this dataarray has already been
     summarized by resampling to a monthly or annual timestep. Zonal statistics are calculated for each of the
@@ -137,8 +137,8 @@ def calculate_zonal_statistics(xarray_dataarray, mask_dataarray, summary_type='n
 
     # convert zone labels to string, prepend '0' if desired
     #zonal_stats['zone'] = fix_zone_labels(zonal_stats['zone'], num_zone_chars)
-    zonal_stats['zone'] = zonal_stats['zone'].apply(str)
-    if num_zone_chars is not None:
-        zonal_stats['zone'] = zonal_stats['zone'].apply(lambda x: f"{x:0>{num_zone_chars}}")
+    #zonal_stats['zone'] = zonal_stats['zone'].apply(str)
+    #if num_zone_chars is not None:
+    #    zonal_stats['zone'] = zonal_stats['zone'].apply(lambda x: f"{x:0>{num_zone_chars}}")
 
     return zonal_stats
